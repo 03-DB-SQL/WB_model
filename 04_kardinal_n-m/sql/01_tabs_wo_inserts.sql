@@ -1,5 +1,9 @@
 -- 01. Tabellen, ohne Inserts
 
+-- Vorbereitung
+DROP DATABASE IF EXISTS mydb;
+CREATE DATABASE IF NOT EXISTS mydb;
+
 -- Servants: ohne Fremdschlüssel
 CREATE TABLE IF NOT EXISTS `mydb`.`servants` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -10,7 +14,7 @@ ENGINE = InnoDB;
 
 -- Products: ohne Fremdschlüssel
 CREATE TABLE IF NOT EXISTS `mydb`.`products` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `product_name` VARCHAR(45) NOT NULL,
   `product_price` DECIMAL(4,2) NOT NULL,
   PRIMARY KEY (`id`))
@@ -34,3 +38,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`purchases` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+DESCRIBE mydb.servants;
+DESCRIBE mydb.products;
+DESCRIBE mydb.purchases;
+
