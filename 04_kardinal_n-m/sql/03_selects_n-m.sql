@@ -13,19 +13,19 @@ INNER JOIN mydb.servants ON mydb.servants.id = mydb.purchases.servants_id
 INNER JOIN mydb.products ON mydb.products.id = mydb.purchases.products_id
 ;
 
--- Welche Artikel hat Michael gekauft?
+-- Welche Artikel hat Bernhard gekauft?
 SELECT 
 	#servant_name AS Diener,
-    #product_name AS "Von Michael gekaufte Produkte:"
+    #product_name AS "Von Bernhard gekaufte Produkte:"
     concat(servant_name, " kauft ", product_name) AS Kaufhandlung
 FROM mydb.purchases
 INNER JOIN mydb.servants ON mydb.servants.id = mydb.purchases.servants_id
 INNER JOIN mydb.products ON mydb.products.id = mydb.purchases.products_id
-#WHERE servant_name = "Michael"
+#WHERE servant_name = "Bernhard"
 WHERE servant_name = "Peter"
 ;
 
--- Wieviel Produkte hat Michael gekauft?
+-- Wieviele Produkte hat Bernhard gekauft?
 SELECT 
     concat(
 			servant_name, 
@@ -36,10 +36,10 @@ SELECT
 FROM mydb.purchases
 INNER JOIN mydb.servants ON mydb.servants.id = mydb.purchases.servants_id
 INNER JOIN mydb.products ON mydb.products.id = mydb.purchases.products_id
-WHERE servant_name = "Michael"
+WHERE servant_name = "Bernhard"
 ;
 
--- Wieviel Geld hat Michael ausgegeben?
+-- Wieviel Geld hat Bernhard ausgegeben?
 SELECT 
     servant_name AS Diener, -- organisch
     count(servant_name) AS Artikelanzahl, -- aggregiert / f()
@@ -48,7 +48,7 @@ FROM mydb.purchases
 INNER JOIN mydb.servants ON mydb.servants.id = mydb.purchases.servants_id
 INNER JOIN mydb.products ON mydb.products.id = mydb.purchases.products_id
 GROUP BY servant_name
-HAVING servant_name = "Michael"
+HAVING servant_name = "Bernhard"
 ;
 
 -- Wer hat das Produkt X gekauft?  
@@ -89,9 +89,4 @@ GROUP BY product_name
 #ORDER BY sum(product_price) DESC
 ORDER BY Umsätze DESC -- Alias
 ;
-
-
-
-
-
 

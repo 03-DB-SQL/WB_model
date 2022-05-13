@@ -42,7 +42,7 @@ ENGINE = InnoDB;
 
 -- Servants: Inserts
 INSERT INTO `mydb`.`servants` (`id`, `servant_name`, `yrs_served`, `cats_id`) VALUES (DEFAULT, "Peter", 5, 2);
-INSERT INTO `mydb`.`servants` (`id`, `servant_name`, `yrs_served`, `cats_id`) VALUES (DEFAULT, "Michael", 5, 1);
+INSERT INTO `mydb`.`servants` (`id`, `servant_name`, `yrs_served`, `cats_id`) VALUES (DEFAULT, "Bernhard", 5, 1);
 
 -- Servants: Struktur + Inhalte
 DESCRIBE mydb.servants;
